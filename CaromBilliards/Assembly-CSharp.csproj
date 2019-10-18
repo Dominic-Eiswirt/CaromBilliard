@@ -59,25 +59,25 @@
      <Compile Include="Assets\Scripts\MixerVolumeSetter.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>S:/Program Files/Unity/2019.1.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -266,13 +266,13 @@
  <HintPath>S:/Program Files/Unity/2019.1.1f1/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>S:/Proj/CaromBilliards/CaromBilliards/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>S:/Program Files/Unity/2019.1.1f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
