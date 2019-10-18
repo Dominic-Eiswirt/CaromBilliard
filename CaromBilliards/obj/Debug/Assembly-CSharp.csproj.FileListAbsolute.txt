@@ -1,0 +1,2 @@
+S:\Proj\CaromBilliard\CaromBilliards\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+S:\Proj\CaromBilliard\CaromBilliards\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
