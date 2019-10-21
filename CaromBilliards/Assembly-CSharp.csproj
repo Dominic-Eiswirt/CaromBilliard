@@ -60,10 +60,13 @@
      <Compile Include="Assets\Cue.cs" />
      <Compile Include="Assets\IBall.cs" />
      <Compile Include="Assets\ICue.cs" />
+     <Compile Include="Assets\IPlayerBall.cs" />
+     <Compile Include="Assets\PlayerBall.cs" />
      <Compile Include="Assets\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\AudioCenter.cs" />
      <Compile Include="Assets\Scripts\MixerVolumeSetter.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
+     <Compile Include="Assets\SessionInfo.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

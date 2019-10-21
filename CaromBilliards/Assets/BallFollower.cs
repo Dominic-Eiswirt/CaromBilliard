@@ -4,27 +4,37 @@ using UnityEngine;
 
 public class BallFollower : MonoBehaviour
 {
-    public GameObject WhiteBall;    
+    public GameObject WhiteBall;
+    IPlayerBall whiteBall;    
     public Vector3 offset;    
-    bool tracking = true;
-    float dampening = 2f;
-    float targetAngle;
-    Vector3 targetPosition;
-    Quaternion rot;
-   
+    
+    
+    void Start()
+    {
+        whiteBall = WhiteBall.GetComponent<IPlayerBall>();
+    }
+
+
     void LateUpdate()
     {
         GoTrack();
-    }
+    }    
+    
     void GoTrack()
     {
-        if(tracking)
+        if (!whiteBall.IsBallMoving())
         {
-            targetPosition = WhiteBall.transform.position - offset;
-            targetAngle = WhiteBall.transform.eulerAngles.y;
-            rot = Quaternion.Euler(0, Mathf.Abs(targetAngle), 0);
-            transform.position = Vector3.Lerp(transform.position, WhiteBall.transform.position - (rot * offset), Time.deltaTime*dampening) ;            
-            transform.LookAt(WhiteBall.transform.position);            
+            transform.position = WhiteBall.transform.TransformPoint(offset);
+            transform.LookAt(WhiteBall.transform);
         }
+    }
+
+    bool IsThereCameraInput()
+    {
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            return true;
+        }
+        return false;
     }
 }
