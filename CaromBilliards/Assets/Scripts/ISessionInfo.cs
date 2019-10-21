@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SessionInfo : MonoBehaviour
+public interface ISessionInfo
 {
-   
+    void AddMoveToInput();
+    void AddScore();
 }

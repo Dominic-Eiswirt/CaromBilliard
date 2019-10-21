@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cue : MonoBehaviour, ICue
-{
-    public GameObject target;
+{    
     public Camera cam;
     public Vector3 cameraOffset;       
     
@@ -17,7 +16,7 @@ public class Cue : MonoBehaviour, ICue
     {
          if (!firing)
          {
-            this.transform.localPosition = new Vector3(cameraOffset.x + target.transform.position.x, target.transform.position.y + cameraOffset.y, cameraOffset.z + target.transform.position.z);
+            this.transform.localPosition = new Vector3(cameraOffset.x + cam.transform.position.x, cam.transform.position.y + cameraOffset.y, cameraOffset.z + cam.transform.position.z);
             
         }
        
@@ -27,7 +26,7 @@ public class Cue : MonoBehaviour, ICue
     {
         //Draw back cue based on time pressed * backward
         firing = true;
-        drawCuePos = target.transform.position + cameraOffset + value * -transform.forward;
+        drawCuePos = cam.transform.position + cameraOffset + value * -transform.forward;
         this.transform.position = Vector3.Lerp(this.transform.position, drawCuePos, Time.deltaTime * speed);
     }
 
