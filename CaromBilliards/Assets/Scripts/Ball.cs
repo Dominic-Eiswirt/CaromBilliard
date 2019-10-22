@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour, IBall
     public enum BallType { White, Red, Yellow }
     [SerializeField] protected BallType myBallType;
     [SerializeField] protected GameObject AudioCenter;
-    [SerializeField] protected AudioSource mySource;
+    protected AudioSource mySource;
     protected IAudioCenter audioCenter;
    
     void Start()
@@ -21,11 +21,11 @@ public class Ball : MonoBehaviour, IBall
     }    
 
     void OnCollisionEnter(Collision collision)
-    {
+    {        
         if (collision.gameObject.GetComponent<IBall>() != null)
         {
-            mySource.clip = audioCenter.RequestCollisionClip();
-            mySource.volume = audioCenter.GetVelocityVolume();
+            mySource.clip = audioCenter.RequestCollisionClip();            
+            mySource.volume = mySource.volume = collision.rigidbody.velocity.magnitude / 20f;
             if (!mySource.isPlaying)
             {
                 mySource.Play();

@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerInput : MonoBehaviour
 {
-    float pressedDuration = 0f;
-    float strength = 200f;    
+#pragma warning disable CS0649
     [SerializeField] GameObject WhiteBall;
     IPlayerBall whiteBall;
     [SerializeField] GameObject Cue;
     ICue cue;
     ISessionInfo sessionInfo;
     [SerializeField] Slider strengthSlider;
+#pragma warning restore 
+
+    float pressedDuration = 0f;
+    float strength = 150f;    
 
     void Start()
     {

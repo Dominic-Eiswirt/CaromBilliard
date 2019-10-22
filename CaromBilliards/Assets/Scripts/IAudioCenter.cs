@@ -6,7 +6,6 @@ public interface IAudioCenter
 {
     AudioClip RequestCueHitClip();
     AudioClip RequestCollisionClip();
-    float GetVelocityVolume();
-    void SetVelocityVolume(float velocity);
+    AudioClip RequestWoodImpact();        
 }
 

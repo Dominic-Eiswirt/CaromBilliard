@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballCollision: {fileID: 8300000, guid: 87515a8cb002d494eb4b9f1f40939bbc, type: 3}
   ballCueHit: {fileID: 8300000, guid: 7edaf161a9b34be48871b4c17dfd2d87, type: 3}
+  woodImpact: {fileID: 8300000, guid: a7acc7a723ca25048a1d2a26eeb3bfba, type: 3}
 --- !u!82 &3795167306821067653
 AudioSource:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f62feed89417dc64db8a6f9fefb8aed8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
