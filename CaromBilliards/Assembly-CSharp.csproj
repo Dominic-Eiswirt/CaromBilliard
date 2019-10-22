@@ -55,9 +55,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\RestartButton.cs" />
      <Compile Include="Assets\Scripts\AudioCenter.cs" />
+     <Compile Include="Assets\Scripts\Ball.cs" />
+     <Compile Include="Assets\Scripts\BallFollower.cs" />
+     <Compile Include="Assets\Scripts\Cue.cs" />
+     <Compile Include="Assets\Scripts\IAudioCenter.cs" />
+     <Compile Include="Assets\Scripts\IBall.cs" />
+     <Compile Include="Assets\Scripts\ICue.cs" />
+     <Compile Include="Assets\Scripts\IPlayerBall.cs" />
+     <Compile Include="Assets\Scripts\ISessionInfo.cs" />
+     <Compile Include="Assets\Scripts\IVictoryTransfer.cs" />
      <Compile Include="Assets\Scripts\MixerVolumeSetter.cs" />
+     <Compile Include="Assets\Scripts\PlayerBall.cs" />
+     <Compile Include="Assets\Scripts\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
+     <Compile Include="Assets\Scripts\SessionInfo.cs" />
+     <Compile Include="Assets\StatsLoader.cs" />
+     <Compile Include="Assets\TableEdge.cs" />
+     <Compile Include="Assets\VictoryTransfer.cs" />
+     <None Include="Assets\save.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>S:/Proj/CaromBilliard/CaromBilliards/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
