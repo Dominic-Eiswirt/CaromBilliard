@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerBall : Ball, IPlayerBall
 {
     bool redCheck, yellowCheck;
-    Rigidbody myBody;
-    float rotationSpeed = 50f;
+    Rigidbody myBody;    
     LineRenderer lineRenderer;
     public event PlayerScored PlayerScoredEvent;
 #pragma warning disable CS0649
@@ -25,14 +24,7 @@ public class PlayerBall : Ball, IPlayerBall
         {            
             transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
             DrawRaycastToDirection();
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.Rotate(0, -Time.deltaTime * rotationSpeed, 0, Space.Self);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.Rotate(0, Time.deltaTime * rotationSpeed, 0, Space.Self);
-            }
+       
             ResetCollisionBools();
         }                
         else
