@@ -4,28 +4,43 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
 using UnityEngine.SceneManagement;
+
+
 //Class that contains information about the overall stats of the game related to winning.
 public class SessionInfo : MonoBehaviour, ISessionInfo
 {
-//References
+    struct LastTurnBallInformation
+    {
+        public Vector3 position;
+        public Quaternion rotation;
+    }
+    LastTurnBallInformation whiteBallLastTurn = new LastTurnBallInformation();
+    LastTurnBallInformation redBallLastTurn = new LastTurnBallInformation();
+    LastTurnBallInformation yellowBallLastTurn = new LastTurnBallInformation();
+    float registeredPower;
+    float registeredPlayerStrength;
+    //References
 #pragma warning disable CS0649
     [Header("UI Text")]
     [SerializeField] Text shotsFiredText;
     [SerializeField] Text timerText;
-    [SerializeField] Text scoreText;    
+    [SerializeField] Text scoreText;
     [Header("Game Objects")]
     [SerializeField] GameObject PlayerBall;
     IPlayerBall playerBall;
+    GameObject yellowBall, redBall;
     [SerializeField] GameObject VictoryTransfer;
 #pragma warning restore
+
     StringBuilder sbTimer = new StringBuilder();
     StringBuilder sbShotsFired = new StringBuilder();
     StringBuilder sbScore = new StringBuilder();
     int gameMoves = 0;
     int score = 0;
-    float timer=1;
-
-   
+    float timer = 1;
+    
+    public bool IsSimulating { get; private set; }
+    bool internalSimulationDelayComplete;
     void Awake()
     {       
 
@@ -52,18 +67,33 @@ public class SessionInfo : MonoBehaviour, ISessionInfo
 
     void Update()
     {
-        timer += Time.deltaTime;        
-        //Start at index 6 which is the last index of the string "Timer: ", go until the end of the string to remove the timer numbers
-        sbTimer.Remove(6, sbTimer.Length-6);
-        sbTimer.Append(timer.ToString("#"));        
-        timerText.text = sbTimer.ToString();
+        if (!IsSimulating)
+        {
+            timer += Time.deltaTime;
+            //Start at index 6 which is the last index of the string "Timer: ", go until the end of the string to remove the timer numbers
+            sbTimer.Remove(6, sbTimer.Length - 6);
+            sbTimer.Append(timer.ToString("#"));
+            timerText.text = sbTimer.ToString();
 
-        CheckWinCondition();
+            CheckWinCondition();
+        }
+        else if(internalSimulationDelayComplete)
+        {            
+            PlayerBall.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z)) * registeredPower * registeredPlayerStrength);
+            if(!playerBall.IsBallMoving())
+            {
+                IsSimulating = false;
+                internalSimulationDelayComplete = false;
+            }
+        }
     }
     public void AddMoveToInput()
     {
-        gameMoves++;
-        UpdateShotFiredUI();
+        if (!IsSimulating)
+        {
+            gameMoves++;
+            UpdateShotFiredUI();
+        }
     }
 
     void UpdateShotFiredUI()
@@ -76,8 +106,11 @@ public class SessionInfo : MonoBehaviour, ISessionInfo
 
     public void AddScore()
     {
-        score++;
-        UpdateScoreUI();        
+        if (!IsSimulating)
+        {
+            score++;
+            UpdateScoreUI();
+        }
     }
 
     void CheckWinCondition()
@@ -98,4 +131,55 @@ public class SessionInfo : MonoBehaviour, ISessionInfo
         sbScore.Append(score.ToString());
         scoreText.text = sbScore.ToString();        
     }
+
+    public void RegisterBallPositionsEndOfTurn(GameObject ball)
+    {
+        Ball.BallType ballType = ball.GetComponent<IBall>().GetBallType();
+        switch (ballType)
+        {
+            case Ball.BallType.White:
+                whiteBallLastTurn.position = ball.transform.position;
+                whiteBallLastTurn.rotation = ball.transform.rotation;
+                break;
+            case Ball.BallType.Red:
+                redBallLastTurn.position = ball.transform.position;
+                redBallLastTurn.rotation = ball.transform.rotation;
+                redBall = ball;
+                break;
+            case Ball.BallType.Yellow:
+                yellowBallLastTurn.position = ball.transform.position;
+                yellowBallLastTurn.rotation = ball.transform.rotation;
+                yellowBall = ball;
+                break;
+        }
+    }
+
+    public void RegisterPower(float power, float strength)
+    {
+        this.registeredPower = power;
+        this.registeredPlayerStrength = strength;
+    }
+
+    
+    public void SimulationButtonPressed()
+    {
+        if (gameMoves > 0 && !IsSimulating)
+        {
+            IsSimulating = true;
+            yellowBall.transform.position = yellowBallLastTurn.position;
+            yellowBall.transform.rotation = yellowBallLastTurn.rotation;
+            redBall.transform.position = redBallLastTurn.position;
+            redBall.transform.rotation = redBallLastTurn.rotation;
+            PlayerBall.transform.position = whiteBallLastTurn.position;
+            PlayerBall.transform.rotation = whiteBallLastTurn.rotation;
+            StartCoroutine(SimulationDelay());
+        }
+    }
+
+    IEnumerator SimulationDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        internalSimulationDelayComplete = true;
+    }
+    
 }
