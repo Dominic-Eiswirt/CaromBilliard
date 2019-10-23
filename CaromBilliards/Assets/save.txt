@@ -1,1 +1,1 @@
-{"saveMoves":3,"saveScore":3,"saveTime":25.059221267700197}
+{"saveMoves":4,"saveScore":3,"saveTime":54.405426025390628}
